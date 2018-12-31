@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Smart Market</title>
+  <link rel="stylesheet" type="text/css" href="//layui.hcwl520.com.cn/layui/css/layui.css?v=201801090202" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+  <script src="//layui.hcwl520.com.cn/layui/layui.js?v=201801090202"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function () {
+      $('a').click(function (a) {
+        a.preventDefault(); //阻止超链接的默认锚点跳转动作。
+        $('#buyer').toggleClass('move');
+        $('#owner').toggleClass('move');
+      });
+    })
+  </script>
+  <script>
+    layui.use(['element'], function () {
+        var form = layui.form
+          , layer = layui.layer,
+          element = layui.element
+      }); 
+      layui.use('form',function () 
+      {  
+        var form = layui.form;
+          form.on('select', function (data) {
+          console.log(data.value); //得到被选中的值
+          App.querysale(data.value);
+          });
+      });
+  </script>
+</head>
+
+<body style="position: static;">
+  <article id="owner">
+    <h1>Smart Market</h1>
+    <h3>You have <span class="black"><span id="balance"></span> </span>META Count: <span id="gcount">0</span></h3>
+    <a herf="#buyer">Switch</a>
+    <div class="totalarea">
+      <div class="layui-tab">
+        <ul class="layui-tab-title">
+          <li class="layui-this">商品管理</li>
+          <li>订单管理</li>
+        </ul>
+        <div class="layui-tab-content">
+          <div class="layui-tab-item layui-show">
+            <div class="lab-ui">
+              <div id="ownerinfo">
+                <div class="text_in">
+                  <div for="amount">
+                    <span class="word">Address:</span>
+                    <input class="input" type="text" id="saddress" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="receiver">
+                    <span class="word">Password:</span>
+                    <input class="input" type="text" id="spassword" placeholder="e.g., 12345678" />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="goodname">
+                    <span class="word">Name:</span>
+                    <input class="input" type="text" id="sgoodname" placeholder="e.g., name" />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="goodprice">
+                    <span class="word">Price:</span>
+                    <input class="input" type="text" id="sgoodprice" placeholder="e.g., Price" />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="goodkey">
+                    <span class="word">Key:</span>
+                    <input class="input" type="text" id="sgoodkey" placeholder="e.g., key" />
+                  </div>
+                </div>
+                <span id="status"></span><br />
+                <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and
+                  warnings.</span>
+                <div class=" button">
+                  <button id="reset">重置</button>
+                  <button id="submit" onclick="App.createSale()">确认</button>
+                </div>
+              </div>
+              <div id="ownergoodinfo">
+                <div id="ownergoodlist">
+                  <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item" style="margin:0 auto; width:330px; text-align:left">
+                      <label class="layui-form-label">商品</label>
+                      <div class="layui-input-block">
+                        <select name="interest" lay-filter="goods" id="slist">
+                          <option value=""></option>
+                          <option value="0">京东优惠券</option>
+                          <option value="1" selected="">LOL点券</option>
+                          <option value="2">文明6激活码</option>
+                          <option value="3">大众点评会员</option>
+                          <option value="4">天猫免费观影券</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="layui-card" id="goodinfo">
+                      <div class="layui-card-header">详情面板</div>
+                      <div class="layui-card-body">
+                        <span></span>
+                        <br>
+                        <span></span>
+                        <br>
+                        <span></span>
+                        <br>
+                        <span></span>
+                        <br>
+                        <span></span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layui-tab-item">
+            <div id="orders">
+              <div class="layui-card">
+                <div class="layui-card-header">订单一览</div>
+                <div class="layui-card-body" id="order-list">
+                </div>
+              </div>
+            </div>
+            <button id="comfirm" onclick="App.comfirm()">Comfirm all order</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+  <article id="buyer">
+    <h1>Smart Market</h1>
+    <h3>Hello, Client</h3>
+    <a herf="#owner">Switch</a>
+    <div class="totalarea">
+      <div class="layui-tab">
+        <ul class="layui-tab-title">
+          <li class="layui-this">个人信息</li>
+          <li>商品一览</li>
+        </ul>
+        <div class="layui-tab-content">
+          <div class="layui-tab-item layui-show">
+            <div class="lab-ui">
+              <div id="clientinfo">
+
+                <div class="text_in">
+                  <div for="caddress">
+                    <div class="word">Address:</div>
+                    <input class="input" type="text" id="caddress" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="cpassword">
+                    <span class="word">Password:</span>
+                    <input class="input" type="text" id="cpassword" placeholder="e.g., 12345678" />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="goodno">
+                    <span class="word">No.:</span>
+                    <input class="input" type="text" id="goodno" placeholder="e.g., 0 " />
+                  </div>
+                </div>
+                <div class="text_in">
+                  <div for="value">
+                    <span class="word">Value:</span>
+                    <input class="input" type="text" id="cvalue" placeholder="e.g., 123" />
+                  </div>
+                </div>
+                <div class="button">
+                  <button id="creset">RESET</button>
+                  <button id="cpickup" onclick="App.pickup()">PICK UP</button>
+                  <button id="csubmit" onclick="App.buy()">BUY</button>
+                </div>
+                <br />
+              </div>
+              <div id="buyergoodinfo">
+                <div id="goodlist">
+                  <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item" style="margin:0 auto; width:330px; text-align:left">
+                      <label class="layui-form-label">商品</label>
+                      <div class="layui-input-block">
+                        <select name="interest" lay-filter="goods" id="clist" onchange="App.querysale()">
+                          <option value=""></option>
+                          <option value="0">京东优惠券</option>
+                          <option value="1" selected="">LOL点券</option>
+                          <option value="2">文明6激活码</option>
+                          <option value="3">大众点评会员</option>
+                          <option value="4">天猫免费观影券</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="layui-card" id="cgoodinfo">
+                    <div class="layui-card-header">详情面板</div>
+                    <div class="layui-card-body">
+                      <span></span>
+                      <br>
+                      <span></span>
+                      <br>
+                      <span></span>
+                      <br>
+                      <span></span>
+                      <br>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</body>
+
+</html>

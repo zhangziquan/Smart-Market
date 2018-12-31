@@ -1,0 +1,237 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-family: 'Open Sans',
+        sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.totalarea {
+    height: 100%;
+    text-align: center;
+    width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    margin-left: 300px;
+}
+
+#owner {
+    background: linear-gradient(rgb(107, 142, 163), rgb(17, 25, 29));
+    left: 100%;
+    height: 100%;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+}
+
+#owner.move {
+    left: 0;
+}
+
+article {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    box-sizing: border-box;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    top: 0;
+}
+
+#buyer {
+    background: linear-gradient(#528bf5, #1838ec);
+    left: 0;
+    text-align: center;
+}
+
+#buyer.move {
+    left: -100%;
+}
+
+.status {
+    color: rgba(228, 48, 48, 0.5);
+    text-align: left;
+    margin-left: 75px;
+}
+
+div button {
+    width: 150px;
+    height: 60px;
+    border-radius: 5%;
+    color: wheat;
+    font-size: 12pt;
+    font-weight: bold;
+    outline: none;
+    background: linear-gradient(rgb(60, 135, 221), rgb(18, 65, 122));
+    box-shadow: inset 0px 0px 2px 2px rgb(49, 122, 187);
+    border: rgba(39, 67, 104, 1) solid 1px;
+}
+
+#submit {
+    position: relative;
+    top: 10px;
+    right: -105px;
+}
+
+#reset {
+    top: 10px;
+    position: relative;
+    left: -115px;
+}
+
+#csubmit {
+    position: relative;
+    top: 20px;
+}
+
+#creset {
+    top: 20px;
+    position: relative;
+    margin-right: 75px;
+}
+
+#cpickup {
+    top: 20px;
+    position: relative;
+    margin-right: 75px;
+}
+
+div input:hover {
+    box-shadow: inset -0.5px -0.5px 1px 1px rgb(3, 95, 180);
+}
+
+#ownerinfo {
+    text-align: center;
+    margin: auto;
+    width: 58%;
+    height: auto;
+    float: left;
+}
+
+#ownerinfo h1 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+.text_in {
+    width: 100%;
+}
+
+div .input {
+    width: 70%;
+    float: left;
+    margin: 10px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: box-shadow .5s ease;
+}
+
+input:focus {
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.word {
+    color: rgba(255, 255, 255, 0.507);
+    font-weight: bold;
+    font-size: 24px;
+    width: 20%;
+    float: left;
+}
+
+#serletcheck {
+    color: red;
+}
+
+#signin {
+    width: 80px;
+    height: 30px;
+    border-radius: 5%;
+    font-size: 12pt;
+    font-weight: bold;
+    outline: none;
+    color: red;
+    background: linear-gradient(rgb(60, 135, 221), rgb(18, 65, 122));
+    box-shadow: inset 0px 0px 2px 2px rgb(49, 122, 187);
+    border: rgba(39, 67, 104, 1) solid 1px;
+    position: relative;
+    top: -20px;
+}
+
+a {
+    font-size: 1.5em;
+    padding: 5px 50px;
+    border: 1px solid #FFF;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    float: right;
+    margin-right: 50px;
+}
+
+#clientinfo {
+    height: 100%;
+    float: left;
+    width: 58%;
+}
+
+#buyergoodinfo {
+    height: 100%;
+    float: right;
+    width: 40%;
+    padding-right: 2%;
+}
+
+#goodlist {
+    height: 360px;
+}
+
+#goodinfo {
+    margin-top: 50px;
+    height: 300px;
+}
+
+#cgoodinfo {
+    margin-top: 50px;
+    height: 300px;
+    text-align: center;
+}
+
+#ownergoodinfo {
+    height: 100%;
+    float: right;
+    width: 40%;
+    padding-right: 2%;
+}
+
+#ownergoodlist {
+    height: 360px;
+    text-align: center;
+}
+
+.lab-ui {
+    margin: 20px;
+}
+
+#comfirm {
+    margin-top: 50px;
+    float: right;
+}

@@ -4,7 +4,9 @@
 
 Github：[https://github.com/zhangziquan/Smart-Market](https://github.com/zhangziquan/Smart-Market)
 
-建议还是打开网站查看markdown格式的报告，转成pdf大小会很奇怪。。
+Blog：[https://www.ziquanzhang.ink/](https://www.ziquanzhang.ink/)
+
+建议还是打开github或者blog查看markdown格式的报告，转成pdf大小会很奇怪。。
 
 ## 选题背景
 
